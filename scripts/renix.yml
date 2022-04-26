@@ -4,27 +4,27 @@
   roles:
     - common
   tasks:
-    - name: rotate screen
-      lineinfile:
-        path: "/etc/xdg/lxsession/LXDE-pi/autostart"
-        line: "@xrandr --output HDMI-1 --rotate right"
-      become: yes
-    - name: rotate input
+    # - name: rotate screen
+    #   lineinfile:
+    #     path: "/etc/xdg/lxsession/LXDE-pi/autostart"
+    #     line: "@xrandr --output HDMI-1 --rotate right"
+    #   become: yes
+    # - name: rotate input
       #  -> libinput touchscreen catchall
       # 90° = Option "TransformationMatrix" "0 -1 1 1 0 0 0 0 1"
       # 180° = Option "TransformationMatrix" "-1 0 1 0 -1 1 0 0 1"
       # 270° = Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
-      lineinfile:
-        path: "/usr/share/X11/xorg.conf.d/40-libinput.conf"
-        insertafter: ".*?libinput touchscreen catchall"
-        line: '        Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"'
-      become: yes
-    - name: disable overscan
-      lineinfile:
-        path: "/boot/config.txt"
-        regex: "^(# *)disable_overscan"
-        line: "disable_overscan=1"
-      become: yes
+      # lineinfile:
+      #   path: "/usr/share/X11/xorg.conf.d/40-libinput.conf"
+      #   insertafter: ".*?libinput touchscreen catchall"
+      #   line: '        Option "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"'
+      # become: yes
+    # - name: disable overscan
+    #   lineinfile:
+    #     path: "/boot/config.txt"
+    #     regex: "^(# *)disable_overscan"
+    #     line: "disable_overscan=1"
+    #   become: yes
     - name: download prometheus and unarchive
       unarchive:
         src: https://github.com/prometheus/prometheus/releases/download/v2.26.0/prometheus-2.26.0.linux-armv7.tar.gz
