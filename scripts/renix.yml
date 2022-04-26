@@ -118,7 +118,7 @@
       become: yes
     - name: rtl 433 git clone
       git:
-        repo: 'https://github.com/merbanan/rtl_433.git'
+        repo: 'https://github.com/DigiWhale/rtl_433.git'
         dest: '~/rtl_433'
         update: no
     - name: create build dir
