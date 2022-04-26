@@ -88,7 +88,7 @@
       become: yes
     - name: git
       git:
-        repo: 'https://github.com/RenixPi/{{ item }}.git'
+        repo: 'https://github.com/DigiWhale/RenixPi/{{ item }}.git'
         dest: '~/{{ item }}'
         update: no
       loop:
