@@ -54,7 +54,7 @@
 - name: create shutdown check script
   copy:
     src: "shutdowncheck.py"
-    dest: "/home/pi/bin/shutdowncheck.py"
+    dest: "/home/pi/.local/bin/shutdowncheck.py"
     mode: '0777'
 - name: create build dir
   file:
